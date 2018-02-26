@@ -1,0 +1,50 @@
+.button{
+	-fx-font-weight: bold;
+	-fx-background-color: #2196f3;
+	-fx-background-radius: 22;
+	-fx-font-size: 16;
+	-fx-text-fill: white;
+	-fx-border-color: #2196f3;
+	-fx-border-radius: 20;
+	-fx-border-width: 3;
+}
+
+
+.button:hover{
+	-fx-font-weight: bold;
+	-fx-background-color: white;
+	-fx-background-radius: 22;
+	-fx-font-size: 16;
+	-fx-text-fill: #2196f3;
+	-fx-border-color: #2196f3;
+	-fx-border-radius: 20;
+	-fx-border-width: 3;
+}
+
+.button:pressed{
+	-fx-font-weight: bold;
+	-fx-background-color: white;
+	-fx-background-radius: 22;
+	-fx-font-size: 16;
+	-fx-text-fill: #2196f3;
+	-fx-border-color: black;
+	-fx-border-radius: 20;
+	-fx-border-width: 3;
+	-fx-rotate: 10;
+}
+
+
+.background{
+	-fx-background-image: url("file:///C:/Users/Cristian/eclipse-workspaceJ/Z_Interpretor/src/background.jpg");
+}
+
+
+.roundedContainers{
+	-fx-background-radius: 22;
+}
+
+.wood{
+	-fx-background-image: url("file:///C:/Users/Cristian/eclipse-workspaceJ/Z_Interpretor/src/wood.jpg");
+}
+
+

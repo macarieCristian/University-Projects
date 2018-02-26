@@ -1,0 +1,14 @@
+(defun trans(L)
+	(cond 
+		((and (cdr L) (cdr (cdr L)))
+			(append (append (list(car L) 2) (trans (car(cdr L)))) (trans (car (cdr (cdr L)))))  
+		)
+		((and (cdr L) (null (cdr (cdr L))))
+			(append (list (car L) 1) (trans (car(cdr L))))
+		)
+		((and (null (cdr L)) (null (cdr (cdr L))))
+			(append (list (car L) 0))
+		)
+	)
+)
+		

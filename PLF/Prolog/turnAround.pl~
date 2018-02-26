@@ -1,0 +1,6 @@
+turnAround([],[]).
+turnAround([H|T],[HR|TR]):-
+    HR is H,
+    turnAround(T,TR).
+
+

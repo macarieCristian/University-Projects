@@ -1,0 +1,5 @@
+ecoli,ygqf,ACGTTAAA
+mouse,udys,GAAATTTT
+tuberculosis,gsda,GTTAA
+human,dsf1,TTAAG
+human,fsw,ATTCCG

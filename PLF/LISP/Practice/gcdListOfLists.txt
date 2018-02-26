@@ -1,0 +1,26 @@
+(defun gcdList(L)
+	(cond
+		((null L)
+			0
+		)
+		((atom (car L))
+			(gcd (car L) (gcdList (cdr L)))
+		)
+		(T
+			(gcd (gcdList (car L)) (gcdList (cdr L)))
+		)
+	)
+)
+
+
+(defun gcdMapList(x)
+	(cond
+		((atom x)
+			x
+		)
+		(T
+			(apply 'gcd (mapcar 'gcdMapList x))
+		)
+	)
+)
+		

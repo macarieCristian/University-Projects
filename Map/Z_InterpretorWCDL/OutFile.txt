@@ -1,0 +1,344 @@
+id: 1
+ExeStack:
+v=20
+(For(v=0;v<3;v=v+1)Fork((Print(v) ; v=v+1)) ; Print(v*10))
+SymTable:
+Out:
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+(For(v=0;v<3;v=v+1)Fork((Print(v) ; v=v+1)) ; Print(v*10))
+SymTable:
+v -> 20
+Out:
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+For(v=0;v<3;v=v+1)Fork((Print(v) ; v=v+1))
+Print(v*10)
+SymTable:
+v -> 20
+Out:
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+v=0
+While(v<3) do (Fork((Print(v) ; v=v+1)) ; v=v+1)
+Print(v*10)
+SymTable:
+v -> 20
+Out:
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+While(v<3) do (Fork((Print(v) ; v=v+1)) ; v=v+1)
+Print(v*10)
+SymTable:
+v -> 0
+Out:
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+(Fork((Print(v) ; v=v+1)) ; v=v+1)
+While(v<3) do (Fork((Print(v) ; v=v+1)) ; v=v+1)
+Print(v*10)
+SymTable:
+v -> 0
+Out:
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+Fork((Print(v) ; v=v+1))
+v=v+1
+While(v<3) do (Fork((Print(v) ; v=v+1)) ; v=v+1)
+Print(v*10)
+SymTable:
+v -> 0
+Out:
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+v=v+1
+While(v<3) do (Fork((Print(v) ; v=v+1)) ; v=v+1)
+Print(v*10)
+SymTable:
+v -> 0
+Out:
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 2
+ExeStack:
+(Print(v) ; v=v+1)
+SymTable:
+v -> 0
+Out:
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+While(v<3) do (Fork((Print(v) ; v=v+1)) ; v=v+1)
+Print(v*10)
+SymTable:
+v -> 1
+Out:
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 2
+ExeStack:
+Print(v)
+v=v+1
+SymTable:
+v -> 0
+Out:
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+(Fork((Print(v) ; v=v+1)) ; v=v+1)
+While(v<3) do (Fork((Print(v) ; v=v+1)) ; v=v+1)
+Print(v*10)
+SymTable:
+v -> 1
+Out:
+0
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 2
+ExeStack:
+v=v+1
+SymTable:
+v -> 0
+Out:
+0
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+Fork((Print(v) ; v=v+1))
+v=v+1
+While(v<3) do (Fork((Print(v) ; v=v+1)) ; v=v+1)
+Print(v*10)
+SymTable:
+v -> 1
+Out:
+0
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 2
+ExeStack:
+SymTable:
+v -> 1
+Out:
+0
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+v=v+1
+While(v<3) do (Fork((Print(v) ; v=v+1)) ; v=v+1)
+Print(v*10)
+SymTable:
+v -> 1
+Out:
+0
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 3
+ExeStack:
+(Print(v) ; v=v+1)
+SymTable:
+v -> 1
+Out:
+0
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+While(v<3) do (Fork((Print(v) ; v=v+1)) ; v=v+1)
+Print(v*10)
+SymTable:
+v -> 2
+Out:
+0
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 3
+ExeStack:
+Print(v)
+v=v+1
+SymTable:
+v -> 1
+Out:
+0
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+(Fork((Print(v) ; v=v+1)) ; v=v+1)
+While(v<3) do (Fork((Print(v) ; v=v+1)) ; v=v+1)
+Print(v*10)
+SymTable:
+v -> 2
+Out:
+0
+1
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 3
+ExeStack:
+v=v+1
+SymTable:
+v -> 1
+Out:
+0
+1
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+Fork((Print(v) ; v=v+1))
+v=v+1
+While(v<3) do (Fork((Print(v) ; v=v+1)) ; v=v+1)
+Print(v*10)
+SymTable:
+v -> 2
+Out:
+0
+1
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 3
+ExeStack:
+SymTable:
+v -> 2
+Out:
+0
+1
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+v=v+1
+While(v<3) do (Fork((Print(v) ; v=v+1)) ; v=v+1)
+Print(v*10)
+SymTable:
+v -> 2
+Out:
+0
+1
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 4
+ExeStack:
+(Print(v) ; v=v+1)
+SymTable:
+v -> 2
+Out:
+0
+1
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+While(v<3) do (Fork((Print(v) ; v=v+1)) ; v=v+1)
+Print(v*10)
+SymTable:
+v -> 3
+Out:
+0
+1
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 4
+ExeStack:
+Print(v)
+v=v+1
+SymTable:
+v -> 2
+Out:
+0
+1
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+Print(v*10)
+SymTable:
+v -> 3
+Out:
+0
+1
+2
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 4
+ExeStack:
+v=v+1
+SymTable:
+v -> 2
+Out:
+0
+1
+2
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 1
+ExeStack:
+SymTable:
+v -> 3
+Out:
+0
+1
+2
+30
+FileTable:
+Heap:
+---------------------------------------------------------------
+id: 4
+ExeStack:
+SymTable:
+v -> 3
+Out:
+0
+1
+2
+30
+FileTable:
+Heap:
+---------------------------------------------------------------

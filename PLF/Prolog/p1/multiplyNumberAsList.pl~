@@ -1,0 +1,25 @@
+
+multi([],_,0,[]).
+multi([H|T],VAL,CAR,[RH|RT]):-
+    multi(T,VAL,CAR2,RT),
+    RH is (H*VAL+CAR2) mod 10,
+    CAR is (H*VAL+CAR2) div 10.
+
+multi(L,VAL,[CAR|RL]):-
+    multi(L,VAL,CAR,RL),
+    CAR=\=0,!.
+
+multi(L,VAL,RL):-
+    multi(L,VAL,_,RL).
+
+
+reverse([],RL,RL).
+reverse([H|T],L1,RL):-
+    L2 = [H|L1],
+    reverse(T,L2,RL).
+
+reverse1([],[]).
+reverse1([H|T],R):-
+    R = [H|R1],
+    reverse1(T,R1).
+

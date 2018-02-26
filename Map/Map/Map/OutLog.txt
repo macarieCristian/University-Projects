@@ -1,0 +1,63 @@
+﻿ExeStack:
+Openfile(file,ex1.txt) , (ReadFile(x);(ReadFile(y);Close(file))), 
+SymTable:
+
+Out:
+
+FileTable:
+
+---------------------------------------------------------------
+ExeStack:
+(ReadFile(x);(ReadFile(y);Close(file))), 
+SymTable:
+ (file,0) 
+Out:
+
+FileTable:
+ (0, ex1.txt ) 
+---------------------------------------------------------------
+ExeStack:
+ReadFile(x), (ReadFile(y);Close(file)), 
+SymTable:
+ (file,0) 
+Out:
+
+FileTable:
+ (0, ex1.txt ) 
+---------------------------------------------------------------
+ExeStack:
+(ReadFile(y);Close(file)), 
+SymTable:
+ (file,0)  (x,39) 
+Out:
+
+FileTable:
+ (0, ex1.txt ) 
+---------------------------------------------------------------
+ExeStack:
+ReadFile(y), Close(file), 
+SymTable:
+ (file,0)  (x,39) 
+Out:
+
+FileTable:
+ (0, ex1.txt ) 
+---------------------------------------------------------------
+ExeStack:
+Close(file), 
+SymTable:
+ (file,0)  (x,39)  (y,0) 
+Out:
+
+FileTable:
+ (0, ex1.txt ) 
+---------------------------------------------------------------
+ExeStack:
+
+SymTable:
+ (file,0)  (x,39)  (y,0) 
+Out:
+
+FileTable:
+
+---------------------------------------------------------------

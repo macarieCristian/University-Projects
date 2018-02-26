@@ -1,0 +1,7 @@
+﻿  Repository.c
+c:\users\cristian\documents\visual studio 2015\projects\lab3-4\goddamn\repository.c(196): warning C4020: 'updateElement': too many actual parameters
+  Controller.c
+c:\users\cristian\documents\visual studio 2015\projects\lab3-4\goddamn\controller.c(8): warning C4029: declared formal parameter list different from definition
+  Generating Code...
+  GodDamn.vcxproj -> C:\Users\Cristian\Documents\Visual Studio 2015\Projects\Lab3-4\Debug\GodDamn.exe
+  GodDamn.vcxproj -> C:\Users\Cristian\Documents\Visual Studio 2015\Projects\Lab3-4\Debug\GodDamn.pdb (Partial PDB)

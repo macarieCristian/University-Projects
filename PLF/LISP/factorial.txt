@@ -1,0 +1,4 @@
+(defun fact(x)
+(cond
+((equal x 0)1)
+(T(* x (fact(- x 1))))))

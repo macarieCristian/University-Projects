@@ -1,0 +1,4 @@
+CREATE TABLE Version
+(V_id INT PRIMARY KEY NOT NULL)
+
+EXEC upp1

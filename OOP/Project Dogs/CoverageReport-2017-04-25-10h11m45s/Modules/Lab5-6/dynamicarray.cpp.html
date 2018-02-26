@@ -1,0 +1,122 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>dynamicarray.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include"DynamicArray.h"
+#include&lt;assert.h&gt;
+
+DynamicArray::DynamicArray(int capacity)
+<span style = "background-color:#fdd">{
+	this-&gt;capacity = capacity;
+	this-&gt;size = 0;
+	this-&gt;array = new Animal[capacity];
+}</span>
+
+DynamicArray::DynamicArray(const DynamicArray&amp; v)
+<span style = "background-color:#fdd">{
+	this-&gt;size = v.size;
+	this-&gt;capacity = v.capacity;
+	this-&gt;array = new Animal[this-&gt;capacity];
+	for (int i = 0; i &lt; this-&gt;size; i++)
+		this-&gt;array[i] = v.array[i];
+}</span>
+
+DynamicArray::~DynamicArray()
+<span style = "background-color:#fdd">{
+	delete[] this-&gt;array;
+}</span>
+
+DynamicArray&amp; DynamicArray::operator=(const DynamicArray&amp; v)
+<span style = "background-color:#fdd">{
+	if (this == &amp;v)
+		return *this;</span>
+
+<span style = "background-color:#fdd">	this-&gt;size = v.size;
+	this-&gt;capacity = v.capacity;</span>
+	
+<span style = "background-color:#fdd">	delete[] this-&gt;array;
+	this-&gt;array = new Animal[this-&gt;capacity];
+	for (int i = 0; i &lt; this-&gt;size; i++)
+		this-&gt;array[i] = v.array[i];</span>
+
+<span style = "background-color:#fdd">		return *this;
+}</span>
+
+void DynamicArray::resize()
+<span style = "background-color:#fdd">{
+	this-&gt;capacity *= 2;</span>
+
+	Animal* biggerArr;
+<span style = "background-color:#fdd">	biggerArr = new Animal[this-&gt;capacity];
+	for (int i = 0; i &lt; this-&gt;size; i++)
+		biggerArr[i] = this-&gt;array[i];
+	delete [] this-&gt;array;
+	this-&gt;array = biggerArr;
+}</span>
+
+void DynamicArray::add(const Animal &amp;a)
+<span style = "background-color:#fdd">{
+	if (this-&gt;size == this-&gt;capacity)
+		this-&gt;resize();
+	this-&gt;array[this-&gt;size++] = a;</span>
+
+<span style = "background-color:#fdd">}</span>
+
+void DynamicArray::del(int pos)
+<span style = "background-color:#fdd">{
+	for (int i = pos; i &lt; this-&gt;size - 1; i++)
+		this-&gt;array[i] = this-&gt;array[i + 1];
+	this-&gt;size--;
+}</span>
+
+void DynamicArray::update(const Animal &amp; a, int pos)
+<span style = "background-color:#fdd">{
+	this-&gt;array[pos] = a;
+}</span>
+
+int DynamicArray::getSize()
+<span style = "background-color:#fdd">{
+	return this-&gt;size;
+}</span>
+
+int DynamicArray::getCapacity()
+<span style = "background-color:#fdd">{
+	return this-&gt;capacity;
+}</span>
+
+Animal* DynamicArray::getAllElements() const
+<span style = "background-color:#fdd">{
+	return this-&gt;array;
+}</span>
+
+void test()
+<span style = "background-color:#fdd">{
+	Animal a = Animal::Animal("Dog", "Rex", 10, "www.htp.com");
+	Animal b = Animal::Animal("Dog1", "Reex", 101, "www.htp.com");
+	DynamicArray arr = DynamicArray(1);
+	assert(arr.getCapacity() == 1);
+	arr.add(a);
+	assert(arr.getSize() == 1);
+	arr.add(b);
+	assert(arr.getCapacity() == 2);
+	arr.del(1);
+	assert(arr.getSize() == 1);
+}</span>
+
+/*
+int main()
+{
+	test();
+	system("pause");
+	return 0;
+}
+*/</pre>
+	</body>
+</html>

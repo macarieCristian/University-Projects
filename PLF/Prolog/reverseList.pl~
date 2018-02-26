@@ -1,0 +1,5 @@
+%reverseList(L-list,RL-reversed list)
+%flow model (i,o)
+reverseList([],[]).
+reverseList([HL|TL],RL):-
+    reverseList(TL,[HL|RL]).

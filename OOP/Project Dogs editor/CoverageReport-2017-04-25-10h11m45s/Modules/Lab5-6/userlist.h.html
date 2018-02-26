@@ -1,0 +1,44 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>userlist.h</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#pragma once
+#include"DynamicArrayT.h"
+#include&lt;vector&gt;
+
+class UserList
+{
+private:
+	std::vector&lt;Animal&gt; list;
+public:
+	UserList();
+
+	void add(const Animal&amp; a);
+	//add an animal to the adoption vector
+
+<span style = "background-color:#dfd">	std::vector&lt;Animal&gt; &amp;getUList() { return list; }</span>
+	//returns a reference to the adoption vector
+
+	int isInside(const Animal&amp; a);
+<span style = "background-color:#dfd">	//search for the animal a in the adoption list</span>
+	//if the animal exists the position where it is found in the vector is returned
+	//otherwise the output is -1
+
+	int getSize() { return this-&gt;list.size(); }
+	//returns the size of the vector
+	
+	Animal UserList::getElem(int pos);
+	//returns a copy of the animal situated on the position pos
+
+	void testUList();
+};
+</pre>
+	</body>
+</html>

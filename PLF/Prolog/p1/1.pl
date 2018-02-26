@@ -1,0 +1,61 @@
+
+
+cmmdc(A,0,A):-!.
+cmmdc(A,B,R):-
+    A < B,!,
+    B2 is B mod A,
+    cmmdc(A,B2,R).
+
+cmmdc(A,B,R):-
+    A >=B,!,
+    A2 is A mod B,
+    cmmdc(B,A2,R).
+
+cmmmc(A,B,R3):-
+    cmmdc(A,B,R2),
+    R3 is (A*B)/R2.
+
+
+cmmmcList([],0).
+cmmmcList([H1,H2|T],R):-
+    cmmmc(H1,H2,Res),
+    cmmmcList(T,Res,R).
+cmmmcList([],CM,CM).
+cmmmcList([H|T],CM,R):-
+    cmmmc(H,CM,Res),
+    cmmmcList(T,Res,R).
+
+
+%----------------------------------
+%addValue(L,EL,P,R)
+
+addValue([H|T],EL,P,[H|TR]):-
+    P>1,!,
+    P2 is P-1,
+    addValue(T,EL,P2,TR).
+addValue(L,EL,1,[EL|L]).
+
+
+% addPartPozValue(L-list,EL-element,C-contor,C2-2 power contor,RL-resultlist)
+
+finalP1(L,EL,RL):-
+    set_prolog_flag(answer_write_options,[max_depth(0)]),
+    addPPValue(L,EL,1,1,RL).
+
+addPPValue([],_,_,_,[]).
+addPPValue([H|T],EL,C,C2,[H,EL|TR]):-
+    C=:=C2,!,
+    CC is C+1,
+    CC2 is C2*2,
+    addPPValue(T,EL,CC,CC2,TR).
+addPPValue([H|T],EL,C,C2,[H|TR]):-
+    C=\=C2,!,
+    CC is C+1,
+    addPPValue(T,EL,CC,C2,TR).
+
+
+
+lenList([],0).
+lenList([_|T],L):-
+    lenList(T,L2),
+    L is L2+1.

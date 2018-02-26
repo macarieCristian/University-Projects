@@ -1,0 +1,11 @@
+
+(defun postOrder2(L)
+	(cond
+		((null L)
+			nil
+		)
+		(T
+			(append (append (postOrder (car (cdr L))) (postOrder (car (cdr (cdr L))))) (list (car L)))
+		)
+	)
+)

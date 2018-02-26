@@ -1,0 +1,25 @@
+
+
+equal([],[]):-!.
+equal(_,[]):-fail,!.
+equal([],_):-fail,!.
+equal([H|T],[H1|T1]):-
+    member(H,[H1|T1]),
+    member(H1,[H|T]),
+    equal(T,T1),!.
+
+equal([H|_],[H1|T1]):-
+    not(member(H,[H1|T1])),
+    fail,!.
+
+equal([H|T],[H1|_]):-
+    not(member(H1,[H|T])),
+    fail,!.
+
+
+remove([],_,[]):-!.
+remove([H|T],H,L):-
+    remove(T,H,L),!.
+remove([H|T],E,[H|TR]):-
+    H=\=E,!,
+    remove(T,E,TR).

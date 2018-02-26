@@ -1,0 +1,17 @@
+
+%replace(L-list,V-value,EL-list,RL-result list)
+
+add([],L,L).
+add([H|T],L2,[H|TR]):-
+    add(T,L2,TR).
+
+
+replace([],_,_,[]).
+replace([H|T],V,EL,[H|TR]):-
+    H=\=V,!,
+    replace(T,V,EL,TR).
+replace([H|_],V,EL,[H|TR]):-
+    H=:=V,!,
+    add(EL,TR,NT),
+    replace(NT,V,EL,NT).
+

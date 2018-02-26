@@ -1,0 +1,6 @@
+c:\users\cristian\documents\visual studio 2015\Projects\Map\Map\bin\Debug\Map.exe.config
+c:\users\cristian\documents\visual studio 2015\Projects\Map\Map\bin\Debug\Map.exe
+c:\users\cristian\documents\visual studio 2015\Projects\Map\Map\bin\Debug\Map.pdb
+c:\users\cristian\documents\visual studio 2015\Projects\Map\Map\obj\Debug\Map.csprojResolveAssemblyReference.cache
+c:\users\cristian\documents\visual studio 2015\Projects\Map\Map\obj\Debug\Map.exe
+c:\users\cristian\documents\visual studio 2015\Projects\Map\Map\obj\Debug\Map.pdb

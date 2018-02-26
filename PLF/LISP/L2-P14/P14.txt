@@ -1,0 +1,42 @@
+(defun rightSon(L c)
+	(cond
+		((and(not(numberp (car L))) (= c 0)) 
+			L
+		)
+		((not(numberp (car L)))
+			(rightSon (cdr L) (- c 1))
+		)
+		((numberp (car L))
+			(rightSon (cdr L) (+ c (car L)))
+		)
+	)
+)
+
+; postOrder((l1,...,ln)) =>
+;l1,l2 = 0 no sons
+;postOrder(l3,...,ln)+l1,l2 = 1 only left son
+;postOrder(l3,...,ln)+postOrder(rightSon)+l1,l2 = 2 left son and right son
+
+
+
+(defun postOrder(L)
+	(cond
+		((= (cadr L) 0)
+			(list (car L))
+		)
+		((= (car (cdr L)) 1)
+			(append (postOrder (cdr (cdr L))) (list (car L)))
+		)
+		((= (car (cdr L)) 2)
+			(append (append (postOrder (cdr (cdr L))) (postOrder (rightSon (cdr (cdr L)) 1))) (list (car L)))
+		)
+	)
+)
+
+(defun testpostOrder()
+    (assert (equal (postOrder '(A 2 B 0 C 2 D 0 E 0)) '(B D E C A)))
+    (assert (equal (postOrder '(A 2 B 0 C 2 D 0 E 2 F 0 G 0)) '(B D F G E C A)))
+    (assert (equal (postOrder '(A 0)) '(A)))
+    "All tests passed"
+)
+		

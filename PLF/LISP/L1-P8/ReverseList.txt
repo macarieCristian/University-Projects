@@ -1,0 +1,18 @@
+;rev(x)
+; nil , if x=null
+;rev([l2,...,ln])+rev(l1) ,l1 is list 
+;rev([l2,...,ln])+l1,l1 is atom
+
+(defun rev(x)
+	(cond
+		((null x) nil)
+		((listp (car x)) (append (rev (cdr x)) (list(rev (car x)))))
+		((atom (car x)) (append (rev (cdr x)) (list(car x))))
+	)
+)
+
+(defun testrev()
+	(assert (equal (rev '(1 2 3(4 5(6 7)))) '(((7 6)5 4)3 2 1) ))
+	(assert (equal (rev ()) nil))
+	"All tests passed!"
+)

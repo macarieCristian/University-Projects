@@ -1,0 +1,65 @@
+insert([],E,[E]).
+insert([H|T],E,[E,H|T]).
+insert([H|T],E,[H|TR]):-
+    insert(T,E,TR).
+
+perm([],[]).
+perm([H|T],R):-
+    perm(T,RP),
+    insert(RP,H,R).
+
+combinari(_,0,[]).
+combinari([H|T],K,[H|TR]):-
+    K>0,
+    K1 is K-1,
+    combinari(T,K1,TR).
+combinari([_|T],K,L):-
+    K>0,
+    combinari(T,K,L).
+
+aranjament(L,K,R):-
+    combinari(L,K,RP),
+    perm(RP,R).
+
+subset([],[]).
+subset([H|T],[H|TR]):-
+    subset(T,TR).
+subset([_|T],L):-
+    subset(T,L).
+
+sum([],C,C).
+sum([H|T],C,R):-
+    C1 is C+H,
+    sum(T,C1,R).
+
+sumL([],0).
+sumL([H|T],R):-
+    sumL(T,R1),
+    R is R1 + H.
+
+allCWS(L,K,S,R):-
+    aranjament(L,K,R),
+    sumL(R,S).
+
+main(L,K,S,R):-
+    findall(RP,allCWS(L,K,S,RP),R).
+
+addL([],L,L).
+addL([H|T],L,[H|TR]):-
+    addL(T,L,TR).
+
+
+replace([],_,_,[]):-!.
+replace([H|T],H,L,R):-
+    integer(H),
+    replace(T,H,L,R1),
+    addL(L,R1,R),!.
+replace([H|T],E,L,[H|TR]):-
+    integer(H),
+    H=\=E,
+    replace(T,E,L,TR),!.
+replace([H|T],E,L,LR):-
+    is_list(H),
+    replace(H,E,L,RP),
+    replace(T,E,L,LR1),
+    LR = [RP|LR1],!.

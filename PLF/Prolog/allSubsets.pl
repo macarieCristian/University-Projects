@@ -1,0 +1,56 @@
+subseq0(List, List).
+
+subseq0(List, Rest) :-
+   subseq1(List, Rest).
+
+subseq1([_|Tail], Rest) :-
+   subseq0(Tail, Rest).
+
+subseq1([Head1|Tail], [Head2|Rest]) :-
+    Head2 is Head1,
+   subseq1(Tail, Rest).
+
+
+listSum([],0).
+listSum([H|T],S):-
+    listSum(T,S2),
+    S is S2+H.
+
+
+allSubsets(L,R):-
+    set_prolog_flag(answer_write_options,[max_depth(0)]),
+    findall(PRes,subseq0(L,PRes),R).
+
+
+addList([],[]).
+addList([HL|TL],[HL|TR]):-
+    addList(TL,TR).
+
+%subsetWithSum(L,S):
+%{[],if L=[]
+%{l1+subsetWithSum((l2,...,ln),S=listSum(l1)
+%{subsetWithSum((l2,...,ln),S!=listSum(l1)
+
+%subsetWithSum(L-list of all subseq lists,S-sum,R-list)
+%flow model:(i,i,o)
+
+subsetsWithSum([],_,[]).
+subsetsWithSum([H|T],S,[HR|TR]):-
+    listSum(H,Res),
+    Res=:=S,!,
+    addList(H,HR),
+    subsetsWithSum(T,S,TR).
+subsetsWithSum([H|T],S,RL):-
+    listSum(H,Res),
+    Res=\=S,
+    subsetsWithSum(T,S,RL).
+
+
+final(L,S,R):-
+    allSubsets(L,RP),
+    subsetsWithSum(RP,S,R).
+
+testFinal:-
+   final([1,2,3],3,[[3],[1,2]]),
+   final([1,2,3,4],0,[[]]),
+   final([1,2,3],1,[[1]]).

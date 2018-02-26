@@ -1,0 +1,66 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>userlist.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "UserList.h"
+#include&lt;algorithm&gt;
+#include&lt;assert.h&gt;
+
+using namespace std;
+
+UserList::UserList()
+<span style = "background-color:#dfd">{
+}</span>
+
+void UserList::add(const Animal &amp; a)
+<span style = "background-color:#dfd">{
+	this-&gt;list.push_back(a);
+}</span>
+
+int UserList::isInside( const Animal &amp; a)
+<span style = "background-color:#dfd">{
+	auto it = find_if(list.begin(), list.end(), [&amp;a](Animal &amp;an) {return (an.getBreed() == a.getBreed()) &amp;&amp; (an.getName() == a.getName()); });
+	if (it == list.end())
+		return -1;
+	return distance(list.begin(), it);
+}</span>
+
+Animal UserList::getElem(int pos)
+<span style = "background-color:#dfd">{
+	return this-&gt;list[pos];
+}</span>
+
+void UserList::testUList()
+<span style = "background-color:#dfd">{
+	UserList ul{};
+	Animal a{ "rara","rex",1,"www" };
+	Animal b{ "ri","ra",1,"www" };
+	assert(ul.getSize() == 0);
+	ul.add(a);
+	assert(ul.getSize() == 1);
+	assert(ul.isInside(a) == 0);
+	assert(ul.isInside(b) == -1);
+	Animal x = ul.getElem(0);
+	vector&lt;Animal&gt; v = ul.getUList();
+	assert(v.size() == 1);
+}</span>
+
+/*void main()
+{
+	UserList ul{};
+	ul.testUList();
+}*/
+
+
+
+
+</pre>
+	</body>
+</html>

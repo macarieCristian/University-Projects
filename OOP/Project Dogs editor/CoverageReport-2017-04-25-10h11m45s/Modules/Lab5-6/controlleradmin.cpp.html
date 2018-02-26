@@ -1,0 +1,164 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>controlleradmin.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include"ControllerAdmin.h"
+#include&lt;assert.h&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+
+int ControllerAdmin::addAnimal(const string&amp; breed, const string&amp; name, int age, const string&amp; photo)
+<span style = "background-color:#dfd">{
+	if (this-&gt;findElementOnPosAlg(breed, name) != -1)
+		return 0;
+	Animal a = Animal(breed, name, age, photo);
+	this-&gt;repo.addElement(a);
+	Animal::incC();
+	Animal::incM();
+	return 1;
+}</span>
+
+int ControllerAdmin::addUList(const Animal &amp; a)
+<span style = "background-color:#dfd">{
+	if (this-&gt;uList.isInside(a) == -1)</span>
+	{
+<span style = "background-color:#dfd">		this-&gt;uList.add(a);
+		return 1;</span>
+	}
+<span style = "background-color:#dfd">	return 0;
+}</span>
+
+void ControllerAdmin::nextA()
+<span style = "background-color:#dfd">{
+	this-&gt;repo.next();
+}</span>
+
+void ControllerAdmin::play()
+<span style = "background-color:#dfd">{
+	this-&gt;repo.Olink();
+}</span>
+
+int ControllerAdmin::findElementOnPosAlg(const std::string &amp; breed, const std::string &amp; name)
+<span style = "background-color:#dfd">{
+	auto it = find_if(this-&gt;repo.getElem().begin(), this-&gt;repo.getElem().end(), [&amp;breed, &amp;name](Animal &amp;a) {return (a.getBreed() == breed) &amp;&amp; (a.getName() == name); });
+	if (it == this-&gt;repo.getElem().end())
+		return -1;
+	return distance(this-&gt;repo.getElem().begin(), it);
+}</span>
+
+/*int ControllerAdmin::findElementOnPos(const string&amp; breed,const string&amp; name)
+{
+	for (int i = 0; i &lt; this-&gt;repo.getLen(); i++)
+		if ((this-&gt;repo.getElement(i).getBreed() == breed) &amp;&amp; (this-&gt;repo.getElement(i).getName() == name))
+			return i;
+	return -1;
+}*/
+
+int ControllerAdmin::delAnimal(const string&amp; breed, const string&amp; name)
+<span style = "background-color:#dfd">{
+	int x = this-&gt;findElementOnPosAlg(breed, name);
+	if (x == -1)
+		return 0;
+	this-&gt;repo.delElement(x);
+	return 1;
+}</span>
+
+int ControllerAdmin::updateAnimal(const string&amp; breedSearch, const string&amp; nameSearch, const string&amp; breed, const string&amp; name, int age, const string&amp; photo)
+<span style = "background-color:#dfd">{
+	int x = this-&gt;findElementOnPosAlg(breedSearch, nameSearch);
+	if (x == -1)
+		return 0;
+	const Animal a{ breed,name,age,photo };
+	this-&gt;repo.updateElement(a,x);
+	return 1;
+}</span>
+
+/*Repository ControllerAdmin::filterByBreedAndAge(const std::string &amp; breed, int age)
+{
+	if (breed == "*")
+	{
+		return this-&gt;getRepo();
+	}
+	else
+	{
+		Repository r{};
+		for (int i = 0; i &lt; this-&gt;getRepo().getLen(); i++)
+		{
+			Animal a = this-&gt;getRepo().getElement(i);
+			if ((a.getBreed() == breed) &amp;&amp; (a.getAge() &lt; age))
+				r.addElement(a);
+		}
+		return r;
+	}
+}*/
+
+Repository ControllerAdmin::filterAlgBreedAndAge(const std::string &amp; breed, int age)
+<span style = "background-color:#dfd">{
+	vector&lt;Animal&gt; repo1 = this-&gt;getRepo().getElem();
+	vector&lt;Animal&gt; repo2(this-&gt;getLength());
+	auto it = copy_if(repo1.begin(), repo1.end(), repo2.begin(), [breed, age](Animal a) {return (a.getBreed() == breed) &amp;&amp; (a.getAge() &lt; age); });
+	Repository r{};
+	repo2.resize(distance(repo2.begin(), it));
+	r.getElem() = repo2;
+	return r;</span>
+
+
+<span style = "background-color:#dfd">}</span>
+
+int ControllerAdmin::getLength()
+<span style = "background-color:#dfd">{
+	return this-&gt;repo.getLen();
+}</span>
+
+Repository &amp;ControllerAdmin::getRepo()
+<span style = "background-color:#dfd">{
+	return this-&gt;repo;
+}</span>
+
+void ControllerAdmin::testController()
+<span style = "background-color:#dfd">{
+	Animal a("Dog", "Rex", 10, "www.htp.com");
+	Animal b{ "ra","r",1,"ww" };
+	Repository rep{};
+	UserList ul1{};
+	ControllerAdmin controller{rep, ul1};
+	assert(controller.getLength() == 0);
+	controller.addAnimal("Dog", "Rex", 10, "ww.ww.ww");
+	assert(controller.addAnimal("Dog", "Rex", 10, "ww.ww.ww") == 0);
+	controller.play();
+	assert(controller.getLength() == 1);
+	assert(controller.findElementOnPosAlg("Dog", "Rex") == 0);
+	assert(controller.findElementOnPosAlg("Dog", "Rex1") == -1);
+	controller.updateAnimal("Dog", "Rex", "dada", "d", 11, "ww");
+	assert(controller.updateAnimal("Dog", "Rex", "dada", "d", 11, "ww") == 0);
+	assert(controller.getRepo().getElement(0).getAge() == 11);
+	controller.delAnimal("dada", "d");
+	assert(controller.delAnimal("dada", "d") == 0);
+	assert(controller.getLength() == 0);
+	controller.addUList(a);
+	assert(controller.addUList(a) == 0);
+	Repository r = controller.filterAlgBreedAndAge("Dog", 0);
+	Repository r1 = controller.getRepo();
+	UserList ul = controller.getUList();
+	controller.nextA();
+}</span>
+
+
+/*int main()
+{
+	Repository r{};
+	ControllerAdmin c{r};
+	c.testController();
+	system("pause");
+	return 0;
+}*/</pre>
+	</body>
+</html>

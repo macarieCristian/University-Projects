@@ -1,0 +1,20 @@
+;sum(x)
+;0,x=null
+;l1+sum([l2,...,ln]),else
+
+(defun sumL(x)
+	(cond
+		((null x)
+			0
+		)
+		(T
+			(+ (car x) (sumL (cdr x)))
+		)
+	)
+)
+
+(defun testsumL()
+	(assert(= (sumL '(1 2 3)) 6))
+	(assert(= (sumL '()) 0))
+	"All tests passed!"
+)

@@ -1,0 +1,8 @@
+5,Ana are mere?,nu,50
+2,Salam?,da,20
+1,Cine sunt eu?,Cristi,10
+8,Ce intrebare?,vvvv,10
+7,Ce zi e azi?,miercuri,7
+3,Cat fac 2 + 2 ?,4,5
+4,Cat fac 3 - 1 ?,2,5
+6,Cafea?,maro,3

@@ -1,0 +1,69 @@
+﻿  repository.c
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\repository.c(64): warning C4047: 'function': 'TElement *' differs in levels of indirection from 'medication *'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\repository.c(64): warning C4024: 'addDynamic': different types for formal and actual parameter 2
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\repository.c(108): warning C4047: 'function': 'int' differs in levels of indirection from 'TElement'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\repository.c(108): warning C4024: 'o': different types for formal and actual parameter 1
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\repository.c(108): warning C4024: 'o': different types for formal and actual parameter 2
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\repository.c(120): warning C4305: 'function': truncation from 'double' to 'float'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\repository.c(122): warning C4305: 'function': truncation from 'double' to 'float'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\repository.c(131): warning C4305: 'function': truncation from 'double' to 'float'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\repository.c(162): warning C4305: 'function': truncation from 'double' to 'float'
+  medication.c
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\medication.c(10): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\medication.c(52): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\medication.c(56): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+  main.c
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\main.c(9): warning C4305: 'function': truncation from 'double' to 'float'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\main.c(11): warning C4305: 'function': truncation from 'double' to 'float'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\main.c(13): warning C4305: 'function': truncation from 'double' to 'float'
+  Interface.c
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(36): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(37): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(55): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(63): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(74): warning C4473: 'scanf' : not enough arguments passed for format string
+  c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(74): note: placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+  c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(74): note: the missing variadic argument 2 is required by format string '%d'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(74): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(77): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(79): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(88): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(97): warning C4133: 'function': incompatible types - from 'Repository *' to 'DynamicArray *'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(106): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(166): warning C4047: 'function': 'char *' differs in levels of indirection from 'char *[20]'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(166): warning C4024: 'filterByName': different types for formal and actual parameter 2
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(165): warning C4477: 'scanf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'char **'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\interface.c(165): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+  dynamicArray.c
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\dynamicarray.c(41): warning C4047: '=': 'TElement' differs in levels of indirection from 'TElement *'
+  controller.c
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\controller.c(54): warning C4013: 'strcmp' undefined; assuming extern returning int
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\controller.c(65): warning C4013: 'strstr' undefined; assuming extern returning int
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\controller.c(69): warning C4028: formal parameter 1 different from declaration
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\controller.c(69): warning C4028: formal parameter 2 different from declaration
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\controller.c(81): warning C4028: formal parameter 1 different from declaration
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\controller.c(81): warning C4028: formal parameter 2 different from declaration
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\controller.c(94): warning C4028: formal parameter 1 different from declaration
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\controller.c(94): warning C4028: formal parameter 2 different from declaration
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\controller.c(116): warning C4305: 'function': truncation from 'double' to 'float'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\controller.c(118): warning C4305: 'function': truncation from 'double' to 'float'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\controller.c(120): warning C4305: 'function': truncation from 'double' to 'float'
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\controller.c(182): warning C4013: 'printf' undefined; assuming extern returning int
+  accept.c
+c:\users\cristian\desktop\project1lab2-3\project1lab2-3\accept.c(5): warning C4013: 'strcmp' undefined; assuming extern returning int
+  Generating Code...
+  Project1lab2-3.vcxproj -> C:\Users\Cristian\Desktop\Project1lab2-3\Debug\Project1lab2-3.exe
+  Project1lab2-3.vcxproj -> C:\Users\Cristian\Desktop\Project1lab2-3\Debug\Project1lab2-3.pdb (Partial PDB)

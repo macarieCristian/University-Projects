@@ -1,0 +1,21 @@
+;setDif([l1,..,ln],s2)=
+;[],L=[]
+;L,s2=[]
+;setDif([l2,..,ln],s2),if l1 member s2
+;l1+setDif([l2,...,ln],s2),if l1 not member s2
+
+(defun setDif(s1 s2)
+	(cond
+	((null s1) nil)
+	((null s2) s1)
+	((member (car s1) s2) (setDif (cdr s1) s2))
+	((not(member(car s1) s2)) (cons (car s1) (setDif (cdr s1) s2)))
+	)
+)
+
+(defun testsetDif ()
+    (assert (equal (setDif '(1 2 3 4 5) '(1 3 5)) '(2 4)))
+    (assert (equal (setDif '(1 2 3 4 5) '(5)) '(1 2 3 4)))
+    (assert (equal (setDif '() '(1 3 5)) nil))
+    "All tests passed"
+)

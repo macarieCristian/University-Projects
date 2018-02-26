@@ -1,0 +1,29 @@
+
+
+;product ((l1,...,ln))
+;l,l is number
+;1,l is atom
+; product(l1) * product(l2) * ... * product(ln) ,l1 is list
+
+
+(defun product(x)
+	(cond 
+		((numberp x)
+			x
+		)
+		((atom x)
+			1
+		)
+		(T
+			(apply '* (mapcar 'product x))
+		)
+	)
+)
+
+
+(defun testProduct()
+	(= 36 (product '(1 a 2 (3 b (c d 3)) 2)))
+	(= 1 (product '(a b c (d f))))
+	(= 0 (product '(a b 0 5 3)))
+	"All tests passed"
+)

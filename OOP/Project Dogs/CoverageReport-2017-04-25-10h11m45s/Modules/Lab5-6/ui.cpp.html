@@ -1,0 +1,375 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>ui.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include"Ui.h"
+#include&lt;iostream&gt;
+#include&lt;string&gt;
+#include&lt;Windows.h&gt;
+#include&lt;algorithm&gt;
+
+using namespace std;
+
+/*void UI::printRepo()
+{
+	cout &lt;&lt; "\n\t\tThe list: \n";
+	Repository rep = this-&gt;controllerA.getRepo();
+	for (int i = 0; i &lt; rep.getLen(); i++)
+		cout &lt;&lt; rep.getElement(i).toString();
+	cout &lt;&lt; "\n";
+}*/
+void UI::printRepo()
+<span style = "background-color:#fdd">{
+	cout &lt;&lt; "\n\t\tThe list: \n";
+	Repository rep = this-&gt;controllerA.getRepo();
+	for_each(rep.getElem().begin(), rep.getElem().end(), [](Animal &amp;a) {cout &lt;&lt; a.toString(); });
+	cout &lt;&lt; "\n";
+}</span>
+
+/*void printARepo(Repository rep)
+{
+	if (rep.getLen() == 0)
+		cout &lt;&lt; "There are no items matching this filter;\n";
+	else
+	{
+		cout &lt;&lt; "\n\t\tThe list: \n";
+		for (int i = 0; i &lt; rep.getLen(); i++)
+		{
+			Animal a = rep.getElement(i);
+			string string1 = "Breed: " + a.getBreed() + "   Name: " + a.getName() + "   Age: " + to_string(a.getAge()) + "\n";
+			cout &lt;&lt; string1;
+		}
+		cout &lt;&lt; "\n";
+	}
+}*/
+void printARepo(Repository rep)
+<span style = "background-color:#fdd">{
+	if (rep.getLen() == 0)
+		cout &lt;&lt; "There are no items matching this filter;\n";
+	else</span>
+	{
+<span style = "background-color:#fdd">		cout &lt;&lt; "\n\t\tThe list: \n";
+		for_each(rep.getElem().begin(), rep.getElem().end(), [](Animal &amp;a) {cout &lt;&lt; "Breed: " + a.getBreed() + "   Name: " + a.getName() + "   Age: " + to_string(a.getAge()) + "\n"; });
+		cout &lt;&lt; "\n";</span>
+	}
+<span style = "background-color:#fdd">}</span>
+
+/*void UI::printUList()
+{
+	if (this-&gt;controllerA.getUList().getSize() == 0)
+		cout &lt;&lt; "\n\nThe adoption list is empty.\n\n";
+	else
+	{
+		cout &lt;&lt; "\n\t\tThe adoption list: \n";
+		UserList ul = this-&gt;controllerA.getUList();
+		for (int i = 0; i &lt; ul.getSize(); i++)
+		{
+			Animal a = ul.getElem(i);
+			string string1 = "Breed: " + a.getBreed() + "   Name: " + a.getName() + "   Age: " + to_string(a.getAge()) + "\n";
+			cout &lt;&lt; string1;
+		}
+		cout &lt;&lt; "\n";
+	}
+}*/
+void UI::printUList()
+<span style = "background-color:#fdd">{
+	if (this-&gt;controllerA.getUList().getSize() == 0)
+		cout &lt;&lt; "\n\nThe adoption list is empty.\n\n";
+	else</span>
+	{
+<span style = "background-color:#fdd">		cout &lt;&lt; "\n\t\tThe adoption list: \n";
+		UserList ul = this-&gt;controllerA.getUList();
+		for_each(ul.getUList().begin(), ul.getUList().end(), [](Animal &amp;a) {cout &lt;&lt; "Breed: " + a.getBreed() + "   Name: " + a.getName() + "   Age: " + to_string(a.getAge()) + "\n"; });
+		cout &lt;&lt; "\n";
+	}
+}</span>
+
+void UI::printCAnimal()
+<span style = "background-color:#fdd">{
+	Animal a = this-&gt;controllerA.getRepo().getCurrAnimal();
+	cout &lt;&lt; "\n\t\t";
+	string string1 = "Breed: " + a.getBreed() + "   Name: " + a.getName() + "   Age: " + to_string(a.getAge()) + "\n";
+	cout &lt;&lt; string1;
+}</span>
+
+void printUserMenu()
+<span style = "background-color:#fdd">{
+	cout &lt;&lt; "\t\tThe menu: \n";
+	cout &lt;&lt; "\t1 - Start show app;\n";
+	cout &lt;&lt; "\t2 - Show adoption list;\n";
+	cout &lt;&lt; "\t3 - See all the dogs of a given breed, having an age less than a given number;\n";
+	cout &lt;&lt; "\t0 - Exit to mode menu.\n\n";
+}</span>
+
+void printUserMenuApp()
+<span style = "background-color:#fdd">{
+	cout &lt;&lt; "\t\tThe app menu: \n";
+	cout &lt;&lt; "\t1 - Addopt this dog;\n";
+	cout &lt;&lt; "\t2 - Next dog;\n";
+	cout &lt;&lt; "\t3 - Show image of this dog;\n";
+	cout &lt;&lt; "\t0 - Exit app.\n\n";
+}</span>
+
+void printMenu()
+<span style = "background-color:#fdd">{
+	cout &lt;&lt; "\t\tThe menu: \n";
+	cout &lt;&lt; "\t1 - Add a new dog;\n";
+	cout &lt;&lt; "\t2 - Delete a dog;\n";
+	cout &lt;&lt; "\t3 - Update a dog;\n";
+	cout &lt;&lt; "\t4 - List all dogs;\n";
+	cout &lt;&lt; "\t5 - List all dogs sorted ascending by name;\n";
+	cout &lt;&lt; "\t6 - Get the number of instances;\n";
+	cout &lt;&lt; "\t0 - Exit to mode menu.\n\n";
+}</span>
+
+void printModeMenu()
+<span style = "background-color:#fdd">{
+	cout &lt;&lt; "\t\tThe menu: \n";
+	cout &lt;&lt; "\t1 - Administrator mode;\n";
+	cout &lt;&lt; "\t2 - User mode;\n";
+	cout &lt;&lt; "\t0 - Exit windows.\n";
+}</span>
+
+void UI::mainMenu()
+<span style = "background-color:#fdd">{
+	bool stop1 = true;
+	while (stop1)</span>
+	{
+<span style = "background-color:#fdd">		system("cls");
+		printModeMenu();
+		int z = -1;
+		cout &lt;&lt; "Enter your command: ";
+		cin &gt;&gt; z;
+		cout &lt;&lt; "\n";
+		if (z == 1)</span>
+		{
+<span style = "background-color:#fdd">			system("cls");
+			printMenu();
+			bool stop = true;
+			int x = -1;
+			while (stop)</span>
+			{
+<span style = "background-color:#fdd">				cout &lt;&lt; "Enter your command: ";
+				cin &gt;&gt; x;
+				cout &lt;&lt; "\n";
+				if (x == 0)</span>
+				{
+<span style = "background-color:#fdd">					cout &lt;&lt; "\n\tThanks for using the app!\n\n";
+					stop = false;</span>
+				}
+<span style = "background-color:#fdd">				else if (x == 1)</span>
+				{
+<span style = "background-color:#fdd">					system("cls");
+					printMenu();
+					cout &lt;&lt; "Enter the breed: ";
+					string breed;
+					cin &gt;&gt; breed;
+					cout &lt;&lt; "Enter the name: ";
+					string name;
+					cin &gt;&gt; name;
+					cout &lt;&lt; "Enter the age: ";</span>
+					int age;
+<span style = "background-color:#fdd">					cin &gt;&gt; age;
+					cout &lt;&lt; "Enter the link: ";
+					string link;
+					cin &gt;&gt; link;
+					cout &lt;&lt; "\n";
+					int res = this-&gt;controllerA.addAnimal(breed, name, age, link);
+					if (res == 0)</span>
+					{
+<span style = "background-color:#fdd">						cout &lt;&lt; "\nThis dog already exists!\n\n";</span>
+					}
+<span style = "background-color:#fdd">					else
+						this-&gt;printRepo();
+				}
+				else if (x == 2)</span>
+				{
+<span style = "background-color:#fdd">					system("cls");
+					printMenu();
+					cout &lt;&lt; "\nFor the dog you want to delete: \n";
+					cout &lt;&lt; "Enter the breed: ";
+					string breed;
+					cin &gt;&gt; breed;
+					cout &lt;&lt; "Enter the name: ";
+					string name;
+					cin &gt;&gt; name;
+					int res = this-&gt;controllerA.delAnimal(breed, name);
+					if (res == 0)</span>
+					{
+<span style = "background-color:#fdd">						cout &lt;&lt; "\nThis dog does not exist!\n\n";</span>
+					}
+<span style = "background-color:#fdd">					else</span>
+					{
+<span style = "background-color:#fdd">						this-&gt;printRepo();</span>
+					}
+<span style = "background-color:#fdd">				}
+				else if (x == 3)</span>
+				{
+<span style = "background-color:#fdd">					system("cls");
+					printMenu();
+					cout &lt;&lt; "\nFor the dog you want to update: \n";
+					cout &lt;&lt; "Enter the breed: ";
+					string breedS;
+					cin &gt;&gt; breedS;
+					cout &lt;&lt; "Enter the name: ";
+					string nameS;
+					cin &gt;&gt; nameS;
+					cout &lt;&lt; "\nThe new atributes: \n";
+					cout &lt;&lt; "Enter the breed: ";
+					string breed;
+					cin &gt;&gt; breed;
+					cout &lt;&lt; "Enter the name: ";
+					string name;
+					cin &gt;&gt; name;
+					cout &lt;&lt; "Enter the age: ";</span>
+					int age;
+<span style = "background-color:#fdd">					cin &gt;&gt; age;
+					cout &lt;&lt; "Enter the link: ";
+					string link;
+					cin &gt;&gt; link;
+					cout &lt;&lt; "\n";
+					int res = this-&gt;controllerA.updateAnimal(breedS, nameS, breed, name, age, link);
+					if (res == 0)</span>
+					{
+<span style = "background-color:#fdd">						cout &lt;&lt; "\nThis dog does not exist!\n\n";</span>
+					}
+<span style = "background-color:#fdd">					else</span>
+					{
+<span style = "background-color:#fdd">						this-&gt;printRepo();</span>
+					}
+<span style = "background-color:#fdd">				}
+				else if (x == 4)</span>
+				{
+<span style = "background-color:#fdd">					system("cls");
+					printMenu();
+					this-&gt;printRepo();</span>
+				}
+<span style = "background-color:#fdd">				else if (x == 5)</span>
+				{
+					
+<span style = "background-color:#fdd">					system("cls");
+					printMenu();
+					Repository rep = this-&gt;controllerA.getRepo();
+					rep.sortAlg();
+					printARepo(rep);
+				}
+				else if (x == 6)</span>
+				{
+<span style = "background-color:#fdd">					cout &lt;&lt; "\n\n\tThe number of max instances: " &lt;&lt; Animal::getNumMI() &lt;&lt; "\n" ;
+					cout &lt;&lt; "\tThe number of curent instances: " &lt;&lt; Animal::getNumCI() &lt;&lt; "\n";</span>
+				}
+<span style = "background-color:#fdd">				else</span>
+				{
+<span style = "background-color:#fdd">					cout &lt;&lt; "\tInvalid command!\n\n";
+					system("pause");</span>
+				}
+<span style = "background-color:#fdd">			}</span>
+		}
+		//User interface
+<span style = "background-color:#fdd">		else if (z == 2)</span>
+		{
+<span style = "background-color:#fdd">			system("cls");
+			printUserMenu();
+			bool stop = true;
+			int x = -1;
+			while (stop)</span>
+			{
+<span style = "background-color:#fdd">				cout &lt;&lt; "Enter your command: ";
+				cin &gt;&gt; x;
+				cout &lt;&lt; "\n";
+				if (x == 0)</span>
+				{
+<span style = "background-color:#fdd">					cout &lt;&lt; "\n\tThanks for using the app!\n\n";
+					stop = false;</span>
+				}
+<span style = "background-color:#fdd">				else if (x == 1)</span>
+				{
+<span style = "background-color:#fdd">					int y = -1;
+					bool stop1 = true;
+					while (stop1)</span>
+					{
+<span style = "background-color:#fdd">						system("cls");
+						printCAnimal();
+						cout &lt;&lt; "\n";
+						printUserMenuApp();
+						cout &lt;&lt; "Enter your command: ";
+						cin &gt;&gt; y;
+						cout &lt;&lt; "\n";
+						if (y == 0)</span>
+						{
+<span style = "background-color:#fdd">							cout &lt;&lt; "\n\tThanks for using the app!\n\n";
+							stop1 = false;
+							system("cls");
+							printUserMenu();</span>
+						}
+<span style = "background-color:#fdd">						else if (y == 1)</span>
+						{
+<span style = "background-color:#fdd">							Animal a = this-&gt;controllerA.getRepo().getCurrAnimal();
+							int res = this-&gt;controllerA.addUList(a);
+							if (res == 0)</span>
+							{
+<span style = "background-color:#fdd">								cout &lt;&lt; "\nThis dog is already in your adoption list.\n\n";
+								system("pause");</span>
+							}
+<span style = "background-color:#fdd">							system("cls");
+						}
+						else if (y == 2)</span>
+						{
+<span style = "background-color:#fdd">							this-&gt;controllerA.nextA();
+							system("cls");
+							printCAnimal();
+							cout &lt;&lt; "\n";
+							printUserMenuApp();</span>
+						}
+<span style = "background-color:#fdd">						else if (y == 3)</span>
+						{
+<span style = "background-color:#fdd">							this-&gt;controllerA.play();</span>
+						}
+<span style = "background-color:#fdd">					}</span>
+				}
+<span style = "background-color:#fdd">				else if (x == 2)</span>
+				{
+<span style = "background-color:#fdd">					system("cls");
+					printUserMenu();
+					printUList();</span>
+				}
+<span style = "background-color:#fdd">				else if (x == 3)</span>
+				{
+<span style = "background-color:#fdd">					system("cls");
+					printUserMenu();
+					string breed;</span>
+					int age;
+<span style = "background-color:#fdd">					cout &lt;&lt; "\nEnter the breed: ";
+					cin &gt;&gt; breed;
+					cout &lt;&lt; "\nEnter the age: ";
+					cin &gt;&gt; age;
+					cout &lt;&lt; "\n";
+					system("cls");
+					printUserMenu();
+					Repository r = this-&gt;controllerA.filterAlgBreedAndAge(breed, age);
+					printARepo(r);
+				}
+			}</span>
+		}
+<span style = "background-color:#fdd">		else if (z == 0)</span>
+		{
+<span style = "background-color:#fdd">			cout &lt;&lt; "\n\tThanks for using my app!\n\n";
+			system("pause");
+			stop1 = false;</span>
+		}
+<span style = "background-color:#fdd">		else</span>
+		{
+<span style = "background-color:#fdd">			cout &lt;&lt; "\tInvalid command!\n\n";
+			system("pause");</span>
+		}
+<span style = "background-color:#fdd">	}
+}</span></pre>
+	</body>
+</html>

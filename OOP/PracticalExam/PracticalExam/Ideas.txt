@@ -1,0 +1,4 @@
+idea1,proposed,Cristi,1
+idea2,proposed,Alex,2
+idea3,proposed,Ana,3
+idea4,proposed,Cristi,3

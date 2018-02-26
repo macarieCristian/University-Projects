@@ -1,0 +1,7 @@
+
+dif([],_,[]).
+dif([H|T],L2,RL):-
+    member(H,L2),!,
+    dif(T,L2,RL).
+dif([H|T],L2,[H|TR]):-
+    dif(T,L2,TR).

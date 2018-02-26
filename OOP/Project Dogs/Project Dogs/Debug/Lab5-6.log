@@ -1,0 +1,16 @@
+﻿  UserList.cpp
+  Ui.cpp
+  CSVUserList.cpp
+  Repository.cpp
+  RepoExceptions.cpp
+  main.cpp
+  HTMLUserList.cpp
+  FileUserList.cpp
+  DynamicArray.cpp
+  Domain.cpp
+  ControllerAdmin.cpp
+  Generating Code...
+c:\users\cristian\desktop\lab5-6 update - 2 - copy\lab5-6\main.cpp(28): warning C4715: 'readInteger2': not all control paths return a value
+c:\users\cristian\desktop\lab5-6 update - 2 - copy\lab5-6\ui.cpp(32): warning C4715: 'readInteger': not all control paths return a value
+  Lab5-6.vcxproj -> C:\Users\Cristian\Desktop\Lab5-6 Update - 2 - Copy\Debug\Lab5-6.exe
+  Lab5-6.vcxproj -> C:\Users\Cristian\Desktop\Lab5-6 Update - 2 - Copy\Debug\Lab5-6.pdb (Full PDB)

@@ -1,0 +1,71 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>controlleradmin.h</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#pragma once
+#include&lt;string&gt;
+#include"Repository.h"
+#include"UserList.h"
+//using namespace std;
+
+class ControllerAdmin
+{
+private:
+	Repository repo;
+	UserList uList;
+public:
+<span style = "background-color:#dfd">	ControllerAdmin(const Repository&amp; r, const UserList &amp;ul) : repo(r), uList(ul) {}</span>
+	
+	int addAnimal(const std::string&amp; breed, const std::string&amp; name, int age, const std::string&amp; photo);
+	// adds a new animal object to the repo
+	//with the specified atributes
+	//returns 1 if successfuly added
+	//returns 0 if the animal already exists
+
+	int addUList(const Animal&amp; a);
+	//1 if succesfuly added
+	//0 if the animal also exists
+	
+<span style = "background-color:#dfd">	UserList getUList() { return this-&gt;uList; }</span>
+	//returns the UserList object
+	
+	void nextA();
+	void play();
+	//from the lower levels
+
+	int findElementOnPosAlg(const std::string&amp; breed, const std::string&amp; name);
+	//int findElementOnPos(const std::string&amp; breed, const std::string&amp; name);
+	//return the index of the searched animal
+	//return -1 if not found
+
+	int delAnimal(const std::string&amp; breed, const std::string&amp; name);
+	//deletes a animal
+	//returns 1 if successfuly deleted
+	//returns 0 if the animal does not exists
+
+	int updateAnimal(const std::string&amp; breedSearch,const std::string&amp; nameSearch, const std::string&amp; breed, const std::string&amp; name, int age, const std::string&amp; photo);
+	//updates the animal with the breedsearch and namesearch atributes
+	//returns 1 if successfuly updated
+	//returns 0 if the animal does not exists
+
+	//Repository filterByBreedAndAge(const std::string&amp; breed, int age);
+
+	Repository filterAlgBreedAndAge(const std::string&amp; breed, int age);
+	//returns a repository object with those animals which have the given breed ant the age less than the given age
+
+	int ControllerAdmin::getLength();
+	//returns the length of the repository object
+	
+	Repository &amp;ControllerAdmin::getRepo();
+
+	void ControllerAdmin::testController();
+};</pre>
+	</body>
+</html>

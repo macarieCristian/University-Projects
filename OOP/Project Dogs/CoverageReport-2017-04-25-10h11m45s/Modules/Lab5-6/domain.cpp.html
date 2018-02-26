@@ -1,0 +1,136 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>domain.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include"Domain.h"
+//#include&lt;sstream&gt;
+#include&lt;assert.h&gt;
+//#include &lt;shellapi.h&gt;
+//#include&lt;iostream&gt;
+#include&lt;Windows.h&gt;
+using namespace std;
+
+int Animal::nrOfCurInstances = 0;
+int Animal::nrOfMaxInstances = 0;
+
+Animal::Animal(const string&amp; breed, const string&amp; name, int age,const string&amp; photo)
+<span style = "background-color:#dfd">{
+	this-&gt;breed = breed;
+	this-&gt;name = name;
+	this-&gt;age = age;
+	this-&gt;photo = photo;
+	this-&gt;nrOfCurInstances++;
+	this-&gt;nrOfMaxInstances++;
+}</span>
+
+<span style = "background-color:#dfd">Animal::Animal(): breed(""), name(""), age(0), photo("") 
+{</span>
+	//this-&gt;nrOfCurInstances++;
+	//this-&gt;nrOfMaxInstances++;
+<span style = "background-color:#dfd">}</span>
+
+Animal::~Animal()
+<span style = "background-color:#dfd">{</span>
+	//this-&gt;nrOfCurInstances--;
+<span style = "background-color:#dfd">}</span>
+
+string Animal::getBreed() const
+<span style = "background-color:#dfd">{
+	return this-&gt;breed;
+}</span>
+
+void Animal::setBreed(string breed)
+<span style = "background-color:#dfd">{
+	this-&gt;breed = breed;
+}</span>
+
+string Animal::getName() const
+<span style = "background-color:#dfd">{
+	return this-&gt;name;
+}</span>
+
+void Animal::setName(string name)
+<span style = "background-color:#dfd">{
+	this-&gt;name = name;
+}</span>
+
+int Animal::getAge()
+<span style = "background-color:#dfd">{
+	return this-&gt;age;
+}</span>
+
+void Animal::setAge(int age)
+<span style = "background-color:#dfd">{
+	this-&gt;age = age;
+}</span>
+
+string Animal::getPhoto()
+<span style = "background-color:#dfd">{
+	return this-&gt;photo;
+}</span>
+
+void Animal::setPhoto(string photo)
+<span style = "background-color:#dfd">{
+	this-&gt;photo = photo;
+}</span>
+
+string Animal::toString()
+<span style = "background-color:#dfd">{
+	string str = "";</span>
+	//string age = "";
+	//stringstream ss;
+	//ss &lt;&lt; this-&gt;age;
+	//ss &gt;&gt; age;
+<span style = "background-color:#dfd">	string lik = this-&gt;photo.substr(0, 40);
+	str = "Breed: " + this-&gt;breed + "    Name: " + this-&gt;name + "    Age: " + to_string(this-&gt;age) + "    Photo link: " + lik + " ...\n";
+	return str;
+}</span>
+
+void Animal::openLink()
+<span style = "background-color:#dfd">{
+	ShellExecuteA(NULL, NULL, "chrome.exe", this-&gt;getPhoto().c_str(), NULL, SW_SHOWMAXIMIZED);
+}</span>
+
+void Animal::testDomain()
+<span style = "background-color:#dfd">{
+	Animal a = Animal::Animal("Dog", "Rex", 10, "www.htp.com");
+	Animal b;
+	assert(a.getBreed() == "Dog");
+	assert(a.getName() == "Rex");
+	assert(a.getAge() == 10);
+	assert(a.getPhoto() == "www.htp.com");
+	a.setBreed("d");
+	a.setName("Dada");
+	a.setAge(11);
+	a.setPhoto("sal");
+	assert(a.getBreed() == "d");
+	assert(a.getName() == "Dada");
+	assert(a.getAge() == 11);
+	assert(a.getPhoto() == "sal");
+	string str = a.toString();
+	assert(this-&gt;getNumCI() == 1);
+	assert(this-&gt;getNumMI() == 1);
+	this-&gt;decC();
+	this-&gt;incC();
+	this-&gt;incM();
+	assert(this-&gt;getNumCI() == 1);
+	assert(this-&gt;getNumMI() == 2);
+}</span>
+
+
+/*int main()
+{
+	Animal a;
+	a.testDomain();
+	system("pause");
+	return 0;
+}*/</pre>
+	</body>
+</html>

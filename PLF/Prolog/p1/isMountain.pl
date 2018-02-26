@@ -1,0 +1,29 @@
+%0-begin,1-increasing,2-decreasing
+mountain([H,H1],F):-
+    H>H1,
+    ((F=:=1);(F=:=2)),!.
+
+mountain([H,H1|T],F):-
+    ((F=:=1);(F=:=0)),
+    H<H1,
+    mountain([H1|T],1),!.
+
+mountain([H,H1|T],F):-
+    ((F=:=1);(F=:=2)),
+    H>H1,
+    mountain([H1,T],2),!.
+
+
+%0-begin,1-decreasing,2-increasing
+valley([H,H1],F):-
+    H<H1,
+    ((F=:=1);(F=:=2)),!.
+valley([H,H1|T],F):-
+    ((F=:=1);(F=:=0)),
+    H>H1,
+    valley([H1|T],1),!.
+valley([H,H1|T],F):-
+    ((F=:=1);(F=:=2)),
+    H<H1,
+    valley([H1|T],2),!.
+

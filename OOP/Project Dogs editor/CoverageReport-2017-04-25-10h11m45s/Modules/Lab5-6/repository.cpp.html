@@ -1,0 +1,136 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>repository.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include"Repository.h"
+#include&lt;iostream&gt;
+#include&lt;assert.h&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+
+using namespace std;
+
+Repository::Repository()
+<span style = "background-color:#dfd">{
+	this-&gt;currPos = 0;
+}</span>
+
+/*int animalGreater(Animal a1, Animal a2)
+{
+	return a1.getName() &lt; a2.getName();
+}*/
+
+
+int Repository::getCurPos()
+<span style = "background-color:#dfd">{
+	return this-&gt;currPos;
+}</span>
+
+void Repository::addElement(const Animal&amp; a)
+<span style = "background-color:#dfd">{
+	this-&gt;elem.push_back(a);
+}</span>
+
+void Repository::delElement(int pos)
+<span style = "background-color:#dfd">{
+	this-&gt;elem.erase(elem.begin() + pos);
+}</span>
+
+void Repository::updateElement(const Animal &amp; a, int pos)
+<span style = "background-color:#dfd">{
+	this-&gt;elem[pos] = a;
+}</span>
+
+Animal&amp; Repository::getElement(int pos)
+<span style = "background-color:#dfd">{
+	return this-&gt;elem[pos];
+}</span>
+
+/*void Repository::SortAss()
+{
+	bool ok = true;
+	while (ok)
+	{
+		ok = false;
+		for (int i = 0; i &lt; this-&gt;getLen()-1; i++)
+		{
+			if (this-&gt;getElement(i).getName() &gt; this-&gt;getElement(i + 1).getName())
+			{
+				Animal aux = this-&gt;getElement(i);
+				this-&gt;updateElement(this-&gt;getElement(i + 1), i);
+				this-&gt;updateElement(aux, i + 1);
+				ok = true;
+			}
+		}
+	}
+}*/
+
+void Repository::sortAlg()
+<span style = "background-color:#dfd">{
+	sort(elem.begin(), elem.end(), [](Animal &amp;a1, Animal &amp;a2) {return a1.getName() &lt; a2.getName(); });
+}</span>
+
+int Repository::getLen()
+<span style = "background-color:#dfd">{
+	return this-&gt;elem.size();
+}</span>
+
+Animal Repository::getCurrAnimal()
+<span style = "background-color:#dfd">{
+	return elem[this-&gt;currPos];
+}</span>
+
+void Repository::next()
+<span style = "background-color:#dfd">{
+	this-&gt;currPos++;
+	if (this-&gt;currPos == this-&gt;elem.size())</span>
+	{
+<span style = "background-color:#dfd">		this-&gt;currPos = 0;</span>
+	}
+<span style = "background-color:#dfd">}</span>
+
+void Repository::Olink()
+<span style = "background-color:#dfd">{
+	Animal a = this-&gt;getCurrAnimal();
+	a.openLink();
+}</span>
+
+void Repository::testRep()
+<span style = "background-color:#dfd">{
+	Repository rep{};
+	assert(rep.getCurPos() == 0);
+	Animal a{ "rara","rex",1,"www" };
+	rep.addElement(a);
+	assert(rep.getLen() == 1);
+	Animal b{ "ra","rex",1,"www" };
+	rep.updateElement(b, 0);
+	assert(rep.getElement(0).getBreed() == "ra");
+	rep.delElement(0);
+	assert(rep.getLen() == 0);
+	rep.addElement(a);
+	rep.addElement(b);
+	vector&lt;Animal&gt; v = rep.getElem();
+	assert(v.size() == 2);
+	Animal c = rep.getElement(0);
+	rep.Olink();
+	rep.next();
+	rep.next();
+	rep.next();
+	assert(rep.getCurPos() == 1);
+	rep.sortAlg();
+}</span>
+
+/*void main()
+{
+	Repository r{};
+	r.testRep();
+}*/</pre>
+	</body>
+</html>
